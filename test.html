@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<style>
+	* {
+		padding: 0;
+		margin: 0;
+	}
+	body {
+		background-color: #101010;
+		overflow-x: hidden;
+	}
+	h1 {
+		font-family: "Roboto", Arial, Helvetica, sans-serif;
+		font-weight: lighter;
+		text-align: center;
+		font-size: 50px;
+		color: white;
+
+		margin-top: 40px;
+
+		position: relative;
+		z-index: 1;
+	}
+	a {
+		color: #eec658;
+	}
+
+	canvas {
+		position: absolute;
+		top: 0;
+		left: 0;
+
+		pointer-events: none;
+	}
+</style>
+<body>
+	<h1>Move your cursor to see the effect!<br>This works well with <a href="https://brm.io/matter-js/">matter.js</a> ;)</h1>
+</body>
+<script src="thatsHot.js"></script>
+<script>
+	initParticles({
+		elem: document.body,
+		width: window.innerWidth,
+		height: window.innerHeight,
+	});
+
+	let mouse = {
+		position: {
+			x: 0,
+			y: 0,
+		},
+		circleRadius: 20,
+		render: {
+			fillStyle: "red",
+		}
+	};
+
+	window.addEventListener("mousemove", event => {
+		mouse.position = {
+			x: event.clientX,
+			y: event.clientY
+		};
+	});
+
+	ignite(mouse);
+</script>
+</html>
